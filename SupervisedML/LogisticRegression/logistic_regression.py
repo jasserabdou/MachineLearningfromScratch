@@ -103,7 +103,7 @@ class LogisticRegression:
         """
         corr_matrix = np.corrcoef(y_true, y_predicted)
         corr = corr_matrix[0, 1]
-        return corr**2
+        return np.power(corr,2)
 
     def accuracy(y_true, y_pred):
         """
