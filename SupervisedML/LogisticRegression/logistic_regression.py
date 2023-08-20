@@ -33,9 +33,6 @@ class LogisticRegression:
             X (ndarray): Training data features.
             y (ndarray): Target values.
 
-        Raises:
-            ValueError: If the shape of X and y do not match.
-
         """
         n_samples, n_features = X.shape
 
