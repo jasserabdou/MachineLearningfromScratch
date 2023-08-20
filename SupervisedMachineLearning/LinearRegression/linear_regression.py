@@ -33,13 +33,8 @@ class LinearRegression:
             X (ndarray): Training data features.
             y (ndarray): Target values.
 
-        Raises:
-            ValueError: If the shape of X and y do not match.
-
         """
         n_samples, n_features = X.shape
-        if len(y) != n_samples:
-            raise ValueError("Number of samples in X and y must match.")
 
         self.weights = np.zeros(n_features)
         self.bias = 0
