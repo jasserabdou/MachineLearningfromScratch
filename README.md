@@ -48,7 +48,3 @@ Replace `<algorithm_name>` with the actual filename of the algorithm you want to
 ```sh
 python linear_regression.py
 ```
-
-
-
-

@@ -41,7 +41,7 @@ class LogisticRegression:
 
         for _ in range(self.n_iters):
             linear_model = np.dot(X, self.weights) + self.bias
-            y_predicted = self._sigmoid(linear_model)
+            y_predicted = self.sigmoid(linear_model)
 
             dw = (1 / n_samples) * np.dot(X.T, (y_predicted - y))
             db = (1 / n_samples) * np.sum(y_predicted - y)
@@ -61,11 +61,11 @@ class LogisticRegression:
 
         """
         linear_model = np.dot(X, self.weights) + self.bias
-        y_predicted = self._sigmoid(linear_model)
+        y_predicted = self.sigmoid(linear_model)
         y_predicted_cls = [1 if i > 0.5 else 0 for i in y_predicted]
         return np.array(y_predicted_cls)
 
-    def _sigmoid(self, x):
+    def sigmoid(self, x):
         """
         Sigmoid activation function.
 
@@ -103,7 +103,7 @@ class LogisticRegression:
         """
         corr_matrix = np.corrcoef(y_true, y_predicted)
         corr = corr_matrix[0, 1]
-        return np.power(corr,2)
+        return np.power(corr, 2)
 
     def accuracy(y_true, y_pred):
         """

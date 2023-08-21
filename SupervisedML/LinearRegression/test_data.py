@@ -12,9 +12,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 lr_model = LinearRegression(lr=0.01)
 lr_model.fit(X_train, y_train)
 predicted = lr_model.predict(X_test)
-
 mse_value = LinearRegression.mse(y_test, predicted)
 r2_score_value = LinearRegression.r2_score(y_test, predicted)
+
 print(f"Mean Squared Error: {mse_value}")
 print(f"R2 Score: {r2_score_value})")
 
