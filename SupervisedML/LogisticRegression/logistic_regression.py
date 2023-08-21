@@ -75,6 +75,7 @@ class LogisticRegression:
         Returns:
             ndarray: Sigmoid output.
         """
+        x = np.clip(x, -500, 500)
         return 1 / (1 + np.exp(-x))
 
     def mse(self, y_true, y_predicted):
@@ -105,6 +106,7 @@ class LogisticRegression:
         corr = corr_matrix[0, 1]
         return np.power(corr, 2)
 
+    @staticmethod
     def accuracy(y_true, y_pred):
         """
         Calculate the accuracy between true and predicted values.

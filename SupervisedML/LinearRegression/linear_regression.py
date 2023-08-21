@@ -62,6 +62,7 @@ class LinearRegression:
         y_predicted = np.dot(X, self.weights) + self.bias
         return y_predicted
 
+    @staticmethod
     def mse(y_true, y_predicted):
         """
         Calculate the Mean Squared Error (MSE) between true and predicted values.
@@ -75,6 +76,7 @@ class LinearRegression:
         """
         return np.mean(np.power((y_true - y_predicted), 2))
 
+    @staticmethod
     def r2_score(y_true, y_predicted):
         """
         Calculate the coefficient of determination (R-squared) between true and predicted values.
@@ -88,4 +90,4 @@ class LinearRegression:
         """
         corr_matrix = np.corrcoef(y_true, y_predicted)
         corr = corr_matrix[0, 1]
-        return np.power(corr,2)
+        return np.power(corr, 2)
