@@ -6,6 +6,7 @@ Welcome to the ML Algorithms from Scratch repository, where you'll find pure Pyt
 
 - Linear Regression
 - Logistic Regression
+- Perceptron
 
 These implementations are designed to provide a clear understanding of the inner workings of these algorithms, making it a great resource for learning and teaching.
 

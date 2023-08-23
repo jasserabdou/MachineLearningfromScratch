@@ -19,7 +19,9 @@ def main():
 
     print(f"Mean Squared Error: {mse_value}")
     print(f"R2 Score: {r2_score_value}")
-    print("Accuracy:", LogisticRegression.accuracy(y_test, predicted))
+
+    accuracy_value = lr_model.accuracy(y_test, predicted)
+    print("Accuracy:", accuracy_value)
 
 
 if __name__ == "__main__":

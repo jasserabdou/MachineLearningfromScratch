@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_regression
 from linear_regression import LinearRegression
@@ -13,11 +14,11 @@ def main():
     lr_model = LinearRegression(lr=0.01)
     lr_model.fit(X_train, y_train)
     predicted = lr_model.predict(X_test)
-    mse_value = LinearRegression.mse(y_test, predicted)
-    r2_score_value = LinearRegression.r2_score(y_test, predicted)
+    mse_value = lr_model.mse(y_test, predicted)
+    r2_score_value = lr_model.r2_score(y_test, predicted)
 
     print(f"Mean Squared Error: {mse_value}")
-    print(f"R2 Score: {r2_score_value})")
+    print(f"R2 Score: {r2_score_value}")
 
     plot_results(X, X_train, y_train, X_test, y_test, lr_model)
 

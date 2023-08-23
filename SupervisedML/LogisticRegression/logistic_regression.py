@@ -10,6 +10,15 @@ class LogisticRegression:
         n_iters (int): Number of iterations for gradient descent.
         weights (ndarray): Coefficients for logistic regression.
         bias (float): Intercept for logistic regression.
+
+    Methods:
+        - __init__(self, lr=0.001, n_iters=1000): Initialize the LogisticRegression model.
+        - fit(X, y): Fit the logistic regression model to the given training data.
+        - predict(X): Predict target values using the trained model.
+        - sigmoid(z): Sigmoid activation function.
+        - mse(y_true, y_predicted): Calculate the Mean Squared Error (MSE) between true and predicted values.
+        - r2_score(y_true, y_predicted): Calculate the coefficient of determination (R-squared) between true and predicted values.
+        - accuracy(y_true, y_pred): Calculate the accuracy between true and predicted values.
     """
 
     def __init__(self, lr=0.001, n_iters=1000):
@@ -32,7 +41,6 @@ class LogisticRegression:
         Args:
             X (ndarray): Training data features.
             y (ndarray): Target values.
-
         """
         n_samples, n_features = X.shape
 
@@ -58,14 +66,13 @@ class LogisticRegression:
 
         Returns:
             ndarray: Predicted target values.
-
         """
         linear_model = np.dot(X, self.weights) + self.bias
         y_predicted = self.sigmoid(linear_model)
         y_predicted_cls = [1 if i > 0.5 else 0 for i in y_predicted]
         return np.array(y_predicted_cls)
 
-    def sigmoid(self, x):
+    def sigmoid(self, z):
         """
         Sigmoid activation function.
 
@@ -75,8 +82,8 @@ class LogisticRegression:
         Returns:
             ndarray: Sigmoid output.
         """
-        x = np.clip(x, -500, 500)
-        return 1 / (1 + np.exp(-x))
+        z = np.clip(z, -500, 500)
+        return 1 / (1 + np.exp(-z))
 
     def mse(self, y_true, y_predicted):
         """
@@ -106,8 +113,7 @@ class LogisticRegression:
         corr = corr_matrix[0, 1]
         return np.power(corr, 2)
 
-    @staticmethod
-    def accuracy(y_true, y_pred):
+    def accuracy(self, y_true, y_pred):
         """
         Calculate the accuracy between true and predicted values.
 

@@ -10,6 +10,13 @@ class LinearRegression:
         n_iters (int): Number of iterations for gradient descent.
         weights (ndarray): Coefficients for linear regression.
         bias (float): Intercept for linear regression.
+
+    Methods:
+        - __init__(self, lr=0.001, n_iters=1000): Initialize the LinearRegression model.
+        - fit(X, y): Fit the linear regression model to the given training data.
+        - predict(X): Predict target values using the trained model.
+        - mse(y_true, y_predicted): Calculate the Mean Squared Error (MSE) between true and predicted values.
+        - r2_score(y_true, y_predicted): Calculate the coefficient of determination (R-squared) between true and predicted values.
     """
 
     def __init__(self, lr=0.001, n_iters=1000):
@@ -32,7 +39,6 @@ class LinearRegression:
         Args:
             X (ndarray): Training data features.
             y (ndarray): Target values.
-
         """
         n_samples, n_features = X.shape
 
@@ -57,13 +63,11 @@ class LinearRegression:
 
         Returns:
             ndarray: Predicted target values.
-
         """
         y_predicted = np.dot(X, self.weights) + self.bias
         return y_predicted
 
-    @staticmethod
-    def mse(y_true, y_predicted):
+    def mse(self, y_true, y_predicted):
         """
         Calculate the Mean Squared Error (MSE) between true and predicted values.
 
@@ -74,10 +78,9 @@ class LinearRegression:
         Returns:
             float: Mean Squared Error.
         """
-        return np.mean(np.power((y_true - y_predicted), 2))
+        return np.mean((y_true - y_predicted) ** 2)
 
-    @staticmethod
-    def r2_score(y_true, y_predicted):
+    def r2_score(self, y_true, y_predicted):
         """
         Calculate the coefficient of determination (R-squared) between true and predicted values.
 
